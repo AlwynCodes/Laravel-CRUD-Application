@@ -10,19 +10,20 @@
         <h1>Create a Product</h1>
         <form method="post" action="">
             <div>
-                <label>Name</label>
-            </div>
-            <div>
                 <div>
+                    <label>Name</label>
                     <input type="text" name="name" placeholder="Name"/>
                 </div>
                 <div>
-                    <input type="text" name="qty" placeholder="qty"/>
+                    <label>Quantity</label>
+                    <input type="text" name="qty" placeholder="Quantity"/>
                 </div>
                 <div>
+                    <label>Price</label>
                     <input type="text" name="price" placeholder="price"/>
                 </div>
                 <div>
+                    <label>Description</label>
                     <input type="text" name="description" placeholder="description"/>
                 </div>
                 <div>
