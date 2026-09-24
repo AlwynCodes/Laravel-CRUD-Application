@@ -39,7 +39,7 @@
                 <input type="text" name="description" placeholder="Description"/>
             </div>
             <div>
-                <input type="submit" value="Save a new Product"/>
+                <input type="submit" value="Create a new Product"/>
             </div>
         </div>
     </form>
