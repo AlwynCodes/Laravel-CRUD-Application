@@ -6,33 +6,26 @@
     <title>Create Product</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-slate-100 min-h-screen flex items-center justify-center p-4">
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
 
     <div class="w-full max-w-lg">
 
         <!-- Card -->
-        <div class="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden">
+        <div class="bg-white rounded-lg shadow-md border border-gray-200">
 
             <!-- Header -->
-            <div class="bg-blue-600 px-6 py-4 flex items-center justify-between">
-                <div>
-                    <h1 class="text-lg font-semibold text-white">Create a Product</h1>
-                    <p class="text-blue-100 text-xs mt-0.5">Add a new item to your inventory</p>
-                </div>
-                <a href="{{ route('product.index') }}"
-                   class="text-blue-100 hover:text-white text-sm transition">
-                    ← Back
-                </a>
+            <div class="bg-blue-600 px-6 py-4 rounded-t-lg">
+                <h1 class="text-lg font-bold text-white">Create a Product</h1>
+                <p class="text-blue-100 text-xs mt-0.5">Add a new item to your inventory</p>
             </div>
 
-            <!-- Form body -->
+            <!-- Form -->
             <form method="post" action="{{ route('product.store') }}" class="p-6 space-y-4">
                 @csrf
 
                 @if($errors->any())
-                    <div class="p-3 bg-red-50 border-l-4 border-red-500 text-red-700 rounded text-sm">
-                        <p class="font-semibold mb-1">Please fix the following:</p>
-                        <ul class="list-disc list-inside text-xs">
+                    <div class="p-3 bg-red-100 border border-red-400 text-red-700 rounded text-sm">
+                        <ul class="list-disc list-inside">
                             @foreach($errors->all() as $error)
                                 <li>{{ $error }}</li>
                             @endforeach
@@ -42,60 +35,41 @@
 
                 <!-- Name -->
                 <div>
-                    <label class="block text-sm font-medium text-slate-700 mb-1.5">
-                        Product Name <span class="text-red-500">*</span>
-                    </label>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Product Name *</label>
                     <input type="text" name="name" value="{{ old('name') }}" placeholder="e.g. Aqua Flask Tumbler"
-                           class="w-full border border-slate-300 rounded-lg px-3.5 py-2.5 text-sm text-slate-800
-                                  placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500
-                                  focus:border-transparent transition">
-                    @error('name') <p class="text-red-600 text-xs mt-1">{{ $message }}</p> @enderror
+                           class="w-full border border-gray-300 rounded px-3 py-2 text-sm text-gray-900 bg-white focus:outline-none focus:border-blue-500">
                 </div>
 
                 <!-- Qty + Price -->
                 <div class="grid grid-cols-2 gap-4">
                     <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1.5">
-                            Quantity <span class="text-red-500">*</span>
-                        </label>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Quantity *</label>
                         <input type="number" name="qty" value="{{ old('qty') }}" placeholder="0"
-                               class="w-full border border-slate-300 rounded-lg px-3.5 py-2.5 text-sm text-slate-800
-                                      placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500
-                                      focus:border-transparent transition">
-                        @error('qty') <p class="text-red-600 text-xs mt-1">{{ $message }}</p> @enderror
+                               class="w-full border border-gray-300 rounded px-3 py-2 text-sm text-gray-900 bg-white focus:outline-none focus:border-blue-500">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1.5">
-                            Price (₱) <span class="text-red-500">*</span>
-                        </label>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Price (₱) *</label>
                         <input type="number" step="0.01" name="price" value="{{ old('price') }}" placeholder="0.00"
-                               class="w-full border border-slate-300 rounded-lg px-3.5 py-2.5 text-sm text-slate-800
-                                      placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500
-                                      focus:border-transparent transition">
-                        @error('price') <p class="text-red-600 text-xs mt-1">{{ $message }}</p> @enderror
+                               class="w-full border border-gray-300 rounded px-3 py-2 text-sm text-gray-900 bg-white focus:outline-none focus:border-blue-500">
                     </div>
                 </div>
 
                 <!-- Description -->
                 <div>
-                    <label class="block text-sm font-medium text-slate-700 mb-1.5">Description</label>
-                    <textarea name="description" rows="3" placeholder="Brief description of the product..."
-                              class="w-full border border-slate-300 rounded-lg px-3.5 py-2.5 text-sm text-slate-800
-                                     placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500
-                                     focus:border-transparent transition resize-none">{{ old('description') }}</textarea>
-                    @error('description') <p class="text-red-600 text-xs mt-1">{{ $message }}</p> @enderror
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Description</label>
+                    <textarea name="description" rows="3" placeholder="Brief description..."
+                              class="w-full border border-gray-300 rounded px-3 py-2 text-sm text-gray-900 bg-white focus:outline-none focus:border-blue-500">{{ old('description') }}</textarea>
                 </div>
 
                 <!-- Buttons -->
-                <div class="flex items-center justify-end gap-3 pt-4 border-t border-slate-200">
+                <div class="flex justify-end gap-2 pt-4 border-t border-gray-200">
                     <a href="{{ route('product.index') }}"
-                       class="px-5 py-2.5 text-sm font-medium text-slate-600 hover:text-slate-800
-                              bg-slate-100 hover:bg-slate-200 rounded-lg transition">
+                       class="px-4 py-2 bg-gray-200 text-gray-800 text-sm font-medium rounded hover:bg-gray-300">
                         Cancel
                     </a>
                     <button type="submit"
-                            class="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold
-                                   rounded-lg shadow-sm hover:shadow transition">
+                            class="px-4 py-2 bg-gray-200 text-gray-800 text-sm font-medium rounded hover:bg-gray-300"
+                            style="color: black !important;">
                         Create Product
                     </button>
                 </div>

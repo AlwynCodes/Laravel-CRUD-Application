@@ -50,7 +50,7 @@
                             <td class="px-4 py-3 text-sm">
                                 <div class="flex gap-2">
                                     <a href="{{ route('product.edit', ['product' => $product]) }}"
-                                       class="px-3 py-1 bg-yellow-500 text-white text-xs rounded hover:bg-yellow-600 transition">
+                                       class="px-3 py-1 bg-yellow-500  text-xs rounded hover:bg-yellow-600 transition">
                                         Edit
                                     </a>
                                     <form action="{{ route('product.destroy', ['product' => $product]) }}"

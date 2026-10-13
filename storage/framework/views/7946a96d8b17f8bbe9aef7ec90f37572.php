@@ -116,7 +116,7 @@ unset($__errorArgs, $__bag); ?>
                         Cancel
                     </a>
                     <button type="submit"
-                            class="px-6 py-2.5 bg-amber-500 hover:bg-amber-600 text-white text-sm font-semibold
+                            class="px-6 py-2.5 bg-amber-500 hover:bg-amber-600  text-sm font-semibold
                                    rounded-lg shadow-sm hover:shadow transition">
                         Update Product
                     </button>
