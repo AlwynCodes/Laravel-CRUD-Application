@@ -8,7 +8,6 @@
 </head>
 <body class="bg-gray-100 min-h-screen">
     <div class="max-w-2xl mx-auto py-10 px-4">
-        <!-- Header -->
         <div class="flex justify-between items-center mb-6">
             <h1 class="text-3xl font-bold text-gray-800">Create a Product</h1>
             <a href="{{ route('product.index') }}"
@@ -17,7 +16,6 @@
             </a>
         </div>
 
-        <!-- Error messages -->
         @if($errors->any())
             <div class="mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded">
                 <p class="font-semibold mb-2">Please fix the following errors:</p>
@@ -29,7 +27,6 @@
             </div>
         @endif
 
-        <!-- Form -->
         <form method="post" action="{{ route('product.store') }}"
               class="bg-white shadow-md rounded-lg p-6 space-y-5">
             @csrf
